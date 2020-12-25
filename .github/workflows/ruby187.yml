@@ -19,5 +19,5 @@ jobs:
         git clone https://github.com/mizzy/specinfra.git
         ruby -v
         cd specinfra
-        bundle install
+        BUNDLE_SSL_VERIFY_MODE=0 bundle
         bundle exec rake spec
