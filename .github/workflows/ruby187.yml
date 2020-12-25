@@ -17,9 +17,10 @@ jobs:
       env:
         BUNDLE_SSL_VERIFY_MODE: 0
       run: |
-        git clone https://github.com/mizzy/specinfra.git
         ruby -v
+        git clone https://github.com/mizzy/specinfra.git
         env | sort
         cd specinfra
+        bundle config
         BUNDLE_SSL_VERIFY_MODE=0 bundle install --path vendor/bundle
         bundle exec rake spec
