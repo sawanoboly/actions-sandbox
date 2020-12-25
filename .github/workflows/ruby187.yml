@@ -1,0 +1,23 @@
+name: Ruby1.8.7
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: ghcr.io/sawanoboly/ruby187-for-gh-actions:latest
+
+    steps:
+    - name: ruby test
+      env:
+        BUNDLE_SSL_VERIFY_MODE: 0
+      run: |
+        git clone https://github.com/mizzy/specinfra.git
+        ruby -v
+        cd specinfra
+        bundle install
+        bundle exec rake spec
