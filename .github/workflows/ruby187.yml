@@ -13,6 +13,7 @@ jobs:
 
     steps:
     - name: ruby test
+      shell: bash
       env:
         BUNDLE_SSL_VERIFY_MODE: 0
       run: |
